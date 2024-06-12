@@ -134,11 +134,40 @@ server.put('/resources/:id', async (req, res) => {
 		await connectDB.end();
 
 		if (result.affectedRows > 0) {
-			res.status(200).json({ success: true });
+			res
+				.status(200)
+				.json({ success: true, message: 'Recurso actualizado con éxito.' });
 		} else {
 			res
 				.status(200)
-				.json({ success: false, message: 'No existe esa página web.' });
+				.json({ success: false, message: 'No existe ese recurso.' });
+		}
+		console.log(result);
+	} catch (error) {
+		res.status(400).json(error);
+	}
+});
+
+//Delete resource by id
+server.delete('/resources/:id', async (req, res) => {
+	try {
+		const connectDB = await getConnection();
+		const { id } = req.params;
+		const deleteAuthor = 'DELETE FROM author WHERE fk_resource = ?;';
+		const [resultAuthor] = await connectDB.query(deleteAuthor, [id]);
+		const deleteResource = 'DELETE FROM resources WHERE id_resource = ?;';
+		const [resultResource] = await connectDB.query(deleteResource, [id]);
+
+		await connectDB.end();
+
+		if (resultResource.affectedRows > 0 && resultAuthor.affectedRows > 0) {
+			res
+				.status(200)
+				.json({ success: true, message: 'Recurso eliminado con éxito.' });
+		} else {
+			res
+				.status(200)
+				.json({ success: false, message: 'No existe ese recurso.' });
 		}
 		console.log(result);
 	} catch (error) {
