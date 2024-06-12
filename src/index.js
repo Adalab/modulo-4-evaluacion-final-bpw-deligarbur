@@ -27,3 +27,21 @@ const getConnection = async () => {
 	connection.connect();
 	return connection;
 };
+
+//ENDPOINTS
+//List
+server.get('/resources', async (req, res) => {
+	try {
+		const connectDB = await getConnection();
+		const select =
+			'SELECT resources.title, resources.url_resource, resources.description, resources.level, author.name_author, author.url_author FROM resources INNER JOIN author ON resources.id_resource = author.fk_resource;';
+		const [result] = await connectDB.query(select);
+		await connectDB.end();
+		res.status(200).json({
+			success: true,
+			results: result,
+		});
+	} catch (error) {
+		res.status(400).json(error);
+	}
+});

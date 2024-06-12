@@ -56,10 +56,10 @@ VALUES (
     '1º ESO'
 );
 
-INSERT INTO author (name_author, url_author)
-VALUES ('ESERO España','https://esero.es/quienes-somos/'),
-('Hubble Site', 'https://hubblesite.org/'),
-('El Mundo Diario Online', 'https://www.elmundo.es/'),
-('María Concepción Anguita y Carmen del Puerto Varela', 'https://outreach.iac.es/cosmoeduca/creditos.html'),
-('NASA','https://science.nasa.gov/'),
-('Antonio Berciano Alonso/INTEF','https://intef.es/');
+INSERT INTO author (name_author, url_author, fk_resource)
+VALUES ('ESERO España','https://esero.es/quienes-somos/', 1),
+('Hubble Site', 'https://hubblesite.org/', 2),
+('El Mundo Diario Online', 'https://www.elmundo.es/', 3),
+('María Concepción Anguita y Carmen del Puerto Varela', 'https://outreach.iac.es/cosmoeduca/creditos.html', 4),
+('NASA','https://science.nasa.gov/', 5),
+('Antonio Berciano Alonso/INTEF','https://intef.es/', 6);
