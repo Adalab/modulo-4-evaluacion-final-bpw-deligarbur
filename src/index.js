@@ -77,7 +77,7 @@ server.post('/resources', async (req, res) => {
 	try {
 		const connectDB = await getConnection();
 		const data = req.body;
-		console.log(data);
+
 		const insertResource =
 			'INSERT INTO resources (title, url_resource, description, level) VALUES (?,?,?,?)';
 		const [resultsResource] = await connectDB.query(insertResource, [
@@ -86,6 +86,7 @@ server.post('/resources', async (req, res) => {
 			data.description,
 			data.level,
 		]);
+
 		const insertAuthor =
 			'INSERT INTO author (name_author, url_author, fk_resource) VALUES (?,?,?)';
 		const [resultsAuthor] = await connectDB.query(insertAuthor, [
@@ -93,12 +94,53 @@ server.post('/resources', async (req, res) => {
 			data.url_author,
 			resultsResource.insertId,
 		]);
+
 		await connectDB.end();
 
 		res.status(200).json({
 			success: true,
 			id: resultsResource.insertId,
 		});
+	} catch (error) {
+		res.status(400).json(error);
+	}
+});
+
+//Update resource by id
+server.put('/resources/:id', async (req, res) => {
+	try {
+		const connectDB = await getConnection();
+		const { id } = req.params;
+		const newResource = req.body;
+
+		const updateResource =
+			'UPDATE resources SET title = ?, url_resource = ?, description = ?, level = ? WHERE id_resource = ?;';
+		const [result] = await connectDB.query(updateResource, [
+			newResource.title,
+			newResource.url_resource,
+			newResource.description,
+			newResource.level,
+			id,
+		]);
+
+		const updateAuthor =
+			'UPDATE author SET name_author = ?, url_author = ? WHERE fk_resource = ?;';
+		const [resultsAuthor] = await connectDB.query(updateAuthor, [
+			newResource.name_author,
+			newResource.url_author,
+			id,
+		]);
+
+		await connectDB.end();
+
+		if (result.affectedRows > 0) {
+			res.status(200).json({ success: true });
+		} else {
+			res
+				.status(200)
+				.json({ success: false, message: 'No existe esa página web.' });
+		}
+		console.log(result);
 	} catch (error) {
 		res.status(400).json(error);
 	}
