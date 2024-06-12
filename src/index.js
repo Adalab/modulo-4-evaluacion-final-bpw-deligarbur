@@ -11,6 +11,7 @@ server.use(cors());
 server.use(express.json());
 
 const PORT = process.env.PORT || 5001;
+
 server.listen(PORT, () => {
 	console.log(`Server running at port: http://localhost:${PORT}`);
 });
@@ -24,6 +25,5 @@ const getConnection = async () => {
 		database: process.env.DB_NAME,
 	});
 	connection.connect();
-	console.log('Conexión con la BD ' + connection.threadId);
 	return connection;
 };
