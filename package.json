@@ -1,0 +1,19 @@
+{
+  "name": "modulo-4-evaluacion-final-bpw-deligarbur",
+  "version": "1.0.0",
+  "description": "Digital Educational Resources on Astronomy (DEROA) API Rest",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Adalab/modulo-4-evaluacion-final-bpw-deligarbur.git"
+  },
+  "author": "Delia Garcia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Adalab/modulo-4-evaluacion-final-bpw-deligarbur/issues"
+  },
+  "homepage": "https://github.com/Adalab/modulo-4-evaluacion-final-bpw-deligarbur#readme"
+}
