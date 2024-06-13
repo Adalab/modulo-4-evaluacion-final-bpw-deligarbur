@@ -6,7 +6,7 @@
 
 Este proyecto es una API REST de Recursos Educativos sobre Astronomía, desarrollado en javascript utilizando Node.JS, Express.JS y MySQL como base de datos.
 
-## Funcionalidades
+## Funcionalidades :gear: 
 
 La API permite realizar las siguientes operaciones:
 
@@ -16,7 +16,7 @@ La API permite realizar las siguientes operaciones:
 - **Actualizar los datos de un registro existente.**
 - **Eliminar un registro existente.**
 
-### Autenticación
+### Autenticación :lock: 
 
 Se ha implementado un sistema de autenticación con JWT con las siguientes funcionalidades:
 
@@ -24,7 +24,7 @@ Se ha implementado un sistema de autenticación con JWT con las siguientes funci
 - Login del usuario registrado.
 - Autenticación del usuario y acceso a su perfil privado de datos personales.
 
-## Uso de la API
+## Uso de la API :gear: 
 
 Para utilizar la API en un proyecto, se pueden seguir los siguientes pasos:
 
@@ -40,7 +40,7 @@ Para utilizar la API en un proyecto, se pueden seguir los siguientes pasos:
     ```
 4. Ejecutar el servidor con node.
 
-### Documentación
+### Documentación :page_facing_up: 
 
 La API se puede consumir a través de las siguientes rutas:
 
@@ -64,20 +64,20 @@ La API se puede consumir a través de las siguientes rutas:
 ```
 
 
-## Tecnologías Utilizadas
+## Tecnologías Utilizadas :computer:
 
 - **JavaScript**
 - **Backend:** Node.JS
 - **Servidor:** Express JS
 - **Base de datos:** MySQL
 
-## En desarrollo
+## En desarrollo :soon:
 
 - Subir el servidor de la API a algún servicio como Render para que esté disponible en Internet.
 - Desarrollo de alicación Frontend que permita consultar alguno de los endpoint del API.
 - Librería Swagger.
 
-## Contribuciones
+## Contribuciones :bulb: 
 
 Si deseas contribuir al proyecto, puedes enviar un pull request con tus mejoras. ¡Gracias por tu interés en Digital Educational Resources on Astronomy (DEROA) API! :star2: 
 <p align="center">
