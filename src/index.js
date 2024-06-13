@@ -243,7 +243,6 @@ server.post('/deroa/login', async (req, res) => {
 
 //Middleware
 const authorize = (req, res, next) => {
-	//const tokenString = req.headers['authorization'];
 	const tokenString = req.headers.authorization;
 	if (!tokenString) {
 		res.status(401).json({ success: false, message: 'Usuario no autorizado.' });
