@@ -21,7 +21,7 @@ La API permite realizar las siguientes operaciones:
 
 Se ha implementado un sistema de autenticación con JWT con las siguientes funcionalidades:
 
-- Registro de usuario con campos: email, nombre, dirección y contraseña.
+- Registro de usuario rellenando los campos: email, nombre, dirección y contraseña.
 - Login del usuario registrado.
 - Autenticación del usuario y acceso a su perfil privado de datos personales.
 
@@ -38,11 +38,11 @@ Para utilizar la API en un proyecto, se pueden seguir los siguientes pasos:
 
 La API se puede consumir a través de las siguientes rutas:
 
-- **GET <code style="color : fuchsia">/deroa/resources</code>:** Obtiene todos los registros de recursos educativos.
-- **POST /resources:** Inserta un nuevo recurso educativo.
-- **GET /resources/:id:** Obtiene un recurso educativo por su id.
-- **PUT /resources/:id:** Actualiza un recurso educativo existente.
-- **DELETE /resources/:id:** Elimina un recurso educativo existente.
+- **GET <code>/deroa/resources</code>:** Obtiene todos los registros de recursos educativos.
+- **GET <code>/deroa/resources/:id</code>:** Obtiene un recurso educativo por su id.
+- **POST <code>/deroa/resources</code>:** Inserta un nuevo recurso educativo.
+- **PUT <code>/deroa/resources/:id</code>:** Actualiza un recurso educativo existente.
+- **DELETE <code>/deroa/resources/:id</code>:** Elimina un recurso educativo existente.
 
 ### Ejemplo de solicitud POST
 
