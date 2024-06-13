@@ -66,6 +66,12 @@ La API se puede consumir a través de las siguientes rutas:
 - **Servidor:** Express JS
 - **Base de datos:** MySQL
 
+## En desarrollo
+
+- Subir el servidor de la API a algún servicio como Render para que esté disponible en Internet.
+- Desarrollo de alicación Frontend que permita consultar alguno de los endpoint del API.
+- Librería Swagger.
+
 ## Contribuciones
 
 Si deseas contribuir al proyecto, puedes enviar un pull request con tus mejoras. ¡Gracias por tu interés en Digital Educational Resources on Astronomy (DEROA) API! :star2: 
