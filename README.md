@@ -4,9 +4,7 @@
 
 <img width="1000" alt="deroa" src="https://github.com/Adalab/modulo-4-evaluacion-final-bpw-deligarbur/blob/master/assets/DEROA.png">
 
-
 Este proyecto es una API REST de Recursos Educativos sobre Astronomía, desarrollado en javascript utilizando Node.JS, Express.JS y MySQL como base de datos.
-
 
 ## Funcionalidades
 
@@ -31,9 +29,9 @@ Se ha implementado un sistema de autenticación con JWT con las siguientes funci
 Para utilizar la API en un proyecto, se pueden seguir los siguientes pasos:
 
 1. Clonar el repositorio desde GitHub.
-2. Instalar las dependencias con npm install.
-3. Configurar la conexión a la base de datos en el archivo config.js.
-4. Ejecutar el servidor con node server.js.
+2. Instalar las dependencias necesarias (express, cors, mysql2, dotenv, jsonwebtoken, bcrypt).
+3. Configurar la conexión a la base de datos.
+4. Ejecutar el servidor con node.
 
 ### Documentación
 
