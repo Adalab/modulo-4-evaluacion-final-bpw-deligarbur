@@ -50,10 +50,7 @@ VALUES (
     '1º ESO, 2º ESO'
 ),
 (
-    'Astronomía para niños.',
-    'http://ntic.educacion.es/w3/eos/MaterialesEducativos/mem2000/astronomia/chicos/index.html',
-    'Este recurso desarrolla las características que definen a cada uno de los planetas, permite profundizar en el origen del Sistema Solar, indagar en diferentes curiosidades astronómicas como el calendario actual o comprender por qué existen las estaciones.',
-    '1º ESO'
+    'The Search for Extraterrestrial Life', 'https://www.seti.org', 'Updates on the search for signs of life beyond Earth by the SETI Institute','Profesorado'
 );
 
 INSERT INTO author (name_author, url_author, fk_resource)
@@ -62,7 +59,8 @@ VALUES ('ESERO España','https://esero.es/quienes-somos/', 1),
 ('El Mundo Diario Online', 'https://www.elmundo.es/', 3),
 ('María Concepción Anguita y Carmen del Puerto Varela', 'https://outreach.iac.es/cosmoeduca/creditos.html', 4),
 ('NASA','https://science.nasa.gov/', 5),
-('Antonio Berciano Alonso/INTEF','https://intef.es/', 6);
+('SETI Institute','https://www.seti.org', 6);
+
 
 
 CREATE TABLE users (
