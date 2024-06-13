@@ -2,7 +2,8 @@
 
 ## Descripción del Proyecto
 
-![DEROA]()
+<img width="1090" alt="deroa" src="">
+
 
 Este proyecto es una API REST de Recursos Educativos sobre Astronomía, desarrollado en javascript utilizando Node.JS, Express.JS y MySQL como base de datos.
 
@@ -68,3 +69,5 @@ La API se puede consumir a través de las siguientes rutas:
 ## Contribuciones
 
 Si deseas contribuir al proyecto, puedes enviar un pull request con tus mejoras. ¡Gracias por tu interés en Digital Educational Resources on Astronomy (DEROA) API! :star2: 
+
+<img width="400" alt="telescope" src="">
