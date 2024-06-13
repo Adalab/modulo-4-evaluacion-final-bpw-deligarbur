@@ -2,7 +2,7 @@
 
 ## Descripción del Proyecto
 
-<img width="1090" alt="deroa" src="">
+<img width="1000" alt="deroa" src="https://github.com/Adalab/modulo-4-evaluacion-final-bpw-deligarbur/blob/master/assets/DEROA.png">
 
 
 Este proyecto es una API REST de Recursos Educativos sobre Astronomía, desarrollado en javascript utilizando Node.JS, Express.JS y MySQL como base de datos.
@@ -70,4 +70,4 @@ La API se puede consumir a través de las siguientes rutas:
 
 Si deseas contribuir al proyecto, puedes enviar un pull request con tus mejoras. ¡Gracias por tu interés en Digital Educational Resources on Astronomy (DEROA) API! :star2: 
 
-<img width="400" alt="telescope" src="">
+<img width="400" alt="telescope" src="https://github.com/Adalab/modulo-4-evaluacion-final-bpw-deligarbur/blob/master/assets/telescope.png">
