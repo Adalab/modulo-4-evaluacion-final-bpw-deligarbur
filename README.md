@@ -69,4 +69,5 @@ La API se puede consumir a través de las siguientes rutas:
 ## Contribuciones
 
 Si deseas contribuir al proyecto, puedes enviar un pull request con tus mejoras. ¡Gracias por tu interés en Digital Educational Resources on Astronomy (DEROA) API! :star2: 
+
 <img align="center" width="300" alt="telescope" src="https://github.com/Adalab/modulo-4-evaluacion-final-bpw-deligarbur/blob/master/assets/telescope.png">
