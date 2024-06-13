@@ -1,4 +1,4 @@
-# Digital Educational Resources on Astronomy (DEROA) API
+# Digital Educational Resources on Astronomy (DEROA) API :rocket: :telescope: :ringed_planet: 
 
 ## Descripción del Proyecto
 
@@ -38,7 +38,7 @@ Para utilizar la API en un proyecto, se pueden seguir los siguientes pasos:
 
 La API se puede consumir a través de las siguientes rutas:
 
-- **GET /resources:** Obtiene todos los registros de recursos educativos.
+- **GET <code style="color : fuchsia">/deroa/resources</code>:** Obtiene todos los registros de recursos educativos.
 - **POST /resources:** Inserta un nuevo recurso educativo.
 - **GET /resources/:id:** Obtiene un recurso educativo por su id.
 - **PUT /resources/:id:** Actualiza un recurso educativo existente.
@@ -67,4 +67,4 @@ La API se puede consumir a través de las siguientes rutas:
 
 ## Contribuciones
 
-Si deseas contribuir al proyecto, puedes enviar un pull request con tus mejoras. ¡Gracias por tu interés en Digital Educational Resources on Astronomy (DEROA) API!
+Si deseas contribuir al proyecto, puedes enviar un pull request con tus mejoras. ¡Gracias por tu interés en Digital Educational Resources on Astronomy (DEROA) API! :star2: 
