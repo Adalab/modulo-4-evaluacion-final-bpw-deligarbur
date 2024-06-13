@@ -32,7 +32,7 @@ const getConnection = async () => {
 
 //ENDPOINTS
 //List
-server.get('/resources', async (req, res) => {
+server.get('/deroa/resources', async (req, res) => {
 	try {
 		const connectDB = await getConnection();
 		const select =
@@ -49,7 +49,7 @@ server.get('/resources', async (req, res) => {
 });
 
 //Search by id
-server.get('/resources/:id', async (req, res) => {
+server.get('/deroa/resources/:id', async (req, res) => {
 	try {
 		const { id } = req.params;
 		const connectDB = await getConnection();
@@ -75,7 +75,7 @@ server.get('/resources/:id', async (req, res) => {
 });
 
 //Insert new resource
-server.post('/resources', async (req, res) => {
+server.post('/deroa/resources', async (req, res) => {
 	try {
 		const connectDB = await getConnection();
 		const data = req.body;
@@ -109,7 +109,7 @@ server.post('/resources', async (req, res) => {
 });
 
 //Update resource by id
-server.put('/resources/:id', async (req, res) => {
+server.put('/deroa/resources/:id', async (req, res) => {
 	try {
 		const connectDB = await getConnection();
 		const { id } = req.params;
@@ -151,7 +151,7 @@ server.put('/resources/:id', async (req, res) => {
 });
 
 //Delete resource by id
-server.delete('/resources/:id', async (req, res) => {
+server.delete('/deroa/resources/:id', async (req, res) => {
 	try {
 		const connectDB = await getConnection();
 		const { id } = req.params;
@@ -178,7 +178,7 @@ server.delete('/resources/:id', async (req, res) => {
 });
 
 // Resister
-server.post('/signup', async (req, res) => {
+server.post('/deroa/signup', async (req, res) => {
 	try {
 		const connectDB = await getConnection();
 		const { email, name, address, password } = req.body;
@@ -213,9 +213,8 @@ server.post('/signup', async (req, res) => {
 });
 
 //Log In
-server.post('/login', async (req, res) => {
+server.post('/deroa/login', async (req, res) => {
 	const connectDB = await getConnection();
-	//console.log(req.body);
 	const { email, password } = req.body;
 	const selectUser = 'SELECT * FROM users WHERE email = ?';
 	const [resultUser] = await connectDB.query(selectUser, [email]);
@@ -229,15 +228,46 @@ server.post('/login', async (req, res) => {
 			});
 			res.status(201).json({ success: true, token: token });
 		} else {
-			//Contraseña incorrecta
+			//Incorrect password
 			res
 				.status(400)
 				.json({ success: false, message: 'Usuario o contraseña incorrectos.' });
 		}
 	} else {
-		//Email incorrecto
+		//Incorrect email
 		res
 			.status(400)
 			.json({ success: false, message: 'Usuario o contraseña incorrectos.' });
+	}
+});
+
+//Middleware
+const authorize = (req, res, next) => {
+	//const tokenString = req.headers['authorization'];
+	const tokenString = req.headers.authorization;
+	if (!tokenString) {
+		res.status(401).json({ success: false, message: 'Usuario no autorizado.' });
+	} else {
+		try {
+			const token = tokenString.split(' ')[1];
+			const verifyToken = jwt.verify(token, 'secret_pass');
+			req.userInfo = verifyToken;
+		} catch (error) {
+			res.status(400).json({ success: false, error: error });
+		}
+		next();
+	}
+};
+
+//Authorize user
+server.get('/deroa/profile', authorize, async (req, res) => {
+	console.log(req.userInfo);
+	try {
+		const connectDB = await getConnection();
+		const selectUser = 'SELECT * FROM users;';
+		const [result] = await connectDB.query(selectUser);
+		res.status(200).json({ success: true, data: result });
+	} catch (error) {
+		res.status(400).json({ success: false, error: error });
 	}
 });
