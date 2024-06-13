@@ -178,7 +178,7 @@ server.delete('/resources/:id', async (req, res) => {
 });
 
 // Resister
-server.post('/sign-up', async (req, res) => {
+server.post('/signup', async (req, res) => {
 	try {
 		const connectDB = await getConnection();
 		const { email, name, address, password } = req.body;
@@ -196,8 +196,10 @@ server.post('/sign-up', async (req, res) => {
 				address,
 				token,
 			]);
-			res.status(201).json({ success: true, token: token });
-			console.log(newUser);
+			res.status(201).json({
+				success: true,
+				token: token,
+			});
 		} else {
 			res.status(200).json({
 				success: false,
@@ -211,3 +213,31 @@ server.post('/sign-up', async (req, res) => {
 });
 
 //Log In
+server.post('/login', async (req, res) => {
+	const connectDB = await getConnection();
+	//console.log(req.body);
+	const { email, password } = req.body;
+	const selectUser = 'SELECT * FROM users WHERE email = ?';
+	const [resultUser] = await connectDB.query(selectUser, [email]);
+
+	if (resultUser.length !== 0) {
+		const samePassword = await bcrypt.compare(password, resultUser[0].password);
+		if (samePassword) {
+			const infoToken = { email: resultUser[0].email, id: resultUser[0].id };
+			const token = jwt.sign(infoToken, 'secret_pass', {
+				expiresIn: '1h',
+			});
+			res.status(201).json({ success: true, token: token });
+		} else {
+			//Contraseña incorrecta
+			res
+				.status(400)
+				.json({ success: false, message: 'Usuario o contraseña incorrectos.' });
+		}
+	} else {
+		//Email incorrecto
+		res
+			.status(400)
+			.json({ success: false, message: 'Usuario o contraseña incorrectos.' });
+	}
+});
