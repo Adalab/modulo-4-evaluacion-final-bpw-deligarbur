@@ -1,0 +1,112 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Digital Educational Resources on Astronomy (DEROA)",
+    "version": "1.0.0",
+    "description": "API de recursos digitales educativos sobre astronomía"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:4000",
+      "description": "Servidor de desarrollo"
+    }
+  ],
+  "paths": {
+    "/deroa/resources": {
+      "get": {
+        "summary": "Lista de todos los recursos",
+        "responses": {
+          "200": {
+            "description": "Operación exitosa",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "projects": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Project"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/createproject": {
+      "post": {
+        "summary": "Crea un nuevo proyecto",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewProject"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Proyecto creado exitosamente"
+          }
+        }
+      }
+    },
+    "/project/{idproject}": {
+      "get": {
+        "summary": "Obtiene detalles de un proyecto específico",
+        "parameters": [
+          {
+            "name": "idproject",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Operación exitosa"
+          },
+          "404": {
+            "description": "Proyecto no encontrado"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Project": {
+        "type": "object",
+        "properties": {
+          "idProject": {
+            "type": "integer"
+          }
+          // Otras propiedades del proyecto
+        }
+      },
+      "NewProject": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "slogan": {
+            "type": "string"
+          }
+          // Otras propiedades necesarias para crear un proyecto
+        }
+      }
+    }
+  }
+}
