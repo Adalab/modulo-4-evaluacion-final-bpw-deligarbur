@@ -30,7 +30,14 @@ Para utilizar la API en un proyecto, se pueden seguir los siguientes pasos:
 
 1. Clonar el repositorio desde GitHub.
 2. Instalar las dependencias necesarias (express, cors, mysql2, dotenv, jsonwebtoken, bcrypt).
-3. Configurar la conexión a la base de datos.
+3. Configurar la conexión a la base de datosy crea un archivo `.env` en la raíz del proyecto con la siguiente configuración:
+    ```env
+    DB_HOST=tu_host_de_base_de_datos
+    DB_USER=tu_usuario_de_base_de_datos
+    DB_PASSWORD=tu_contraseña_de_base_de_datos
+    DB_NAME=nombre_de_tu_base_de_datos
+    PORT=4000
+    ```
 4. Ejecutar el servidor con node.
 
 ### Documentación
