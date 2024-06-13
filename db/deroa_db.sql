@@ -63,3 +63,12 @@ VALUES ('ESERO España','https://esero.es/quienes-somos/', 1),
 ('María Concepción Anguita y Carmen del Puerto Varela', 'https://outreach.iac.es/cosmoeduca/creditos.html', 4),
 ('NASA','https://science.nasa.gov/', 5),
 ('Antonio Berciano Alonso/INTEF','https://intef.es/', 6);
+
+
+CREATE TABLE users (
+    id_user INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    name VARCHAR(50) NOT NULL,
+    address VARCHAR(255),
+    password VARCHAR(255) NOT NULL
+);

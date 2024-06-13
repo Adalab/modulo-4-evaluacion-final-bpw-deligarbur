@@ -2,13 +2,15 @@
 const express = require('express');
 const cors = require('cors');
 const mysql = require('mysql2/promise');
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
 
 require('dotenv').config();
 
 //Server
 const server = express();
 server.use(cors());
-server.use(express.json());
+server.use(express.json({ limit: '15mb' }));
 
 const PORT = process.env.PORT || 5001;
 
@@ -174,3 +176,38 @@ server.delete('/resources/:id', async (req, res) => {
 		res.status(400).json(error);
 	}
 });
+
+// Resister
+server.post('/sign-up', async (req, res) => {
+	try {
+		const connectDB = await getConnection();
+		const { email, name, address, password } = req.body;
+		const selectEmail = 'SELECT * FROM users WHERE email = ?';
+		const [emailResult] = await connectDB.query(selectEmail, [email]);
+		console.log(emailResult);
+
+		if (emailResult.length === 0) {
+			const token = await bcrypt.hash(password, 10);
+			const insertUser =
+				'INSERT INTO users (email, name, address, password) VALUES (?,?,?,?)';
+			const [newUser] = await connectDB.query(insertUser, [
+				email,
+				name,
+				address,
+				token,
+			]);
+			res.status(201).json({ success: true, token: token });
+			console.log(newUser);
+		} else {
+			res.status(200).json({
+				success: false,
+				message: 'El usuario ya existe',
+			});
+		}
+		await connectDB.end();
+	} catch (error) {
+		res.status(400).json({ success: false, error: error });
+	}
+});
+
+//Log In
